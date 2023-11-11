@@ -2,6 +2,9 @@
 	import { browser } from '$app/environment';
 	import '../app.css';
 
+	export let data;
+	let { signedIn } = data;
+
 	let htmlEl: HTMLHtmlElement | null;
 	let theme = 'light';
 	$: if (htmlEl) {
@@ -34,6 +37,12 @@
 		<a class="btn btn-ghost normal-case text-xl" href="/">MyTitle</a>
 	</div>
 	<div class="flex-none">
+		{#if signedIn}
+			<form action="/signout" method="post"><button class="btn">Sign Out</button></form>
+		{:else}
+			<a href="/login" class="btn">Log In</a>
+			<a href="/signup" class="btn">Sign Up</a>
+		{/if}
 		<button class="btn" on:click={handleThemeSwitch}>
 			{#if theme === 'light'}
 				<svg

@@ -5,7 +5,7 @@
 </script>
 
 <main class="p-5">
-	<form class="form-control">
+	<form class="form-control" method="POST">
 		<label for="email" class="label"><span class="label-text">Email</span></label>
 		<input
 			placeholder="email@example.com"
